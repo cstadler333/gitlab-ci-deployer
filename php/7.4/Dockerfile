@@ -14,6 +14,6 @@ LABEL maintainer="Christopher Stadler <cstadler@smthdiff.com>" \
   org.label-schema.vcs-url="https://github.com/cstadler333/gitlab-ci-deployer" \
   org.label-schema.vcs-ref=$VCS_REF
 
-COPY --from=pipelinecomponents/deployer /app/vendor /usr/local/lib/vendor
+COPY --from=pipelinecomponents/deployer:edge /app/vendor /usr/local/lib/vendor
 RUN cd /usr/local/bin \
   && sudo ln -sf ../lib/vendor/bin/dep /usr/local/bin/dep
