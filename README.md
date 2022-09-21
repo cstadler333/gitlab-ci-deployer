@@ -12,11 +12,11 @@
 
 ---
 
-## Based on [Official PHP images](https://hub.docker.com/_/php/) and [My PHP Images](https://hub.docker.com/cstadler333/php)
+## Based on [Official PHP images](https://hub.docker.com/_/php/) and [My Gitlab CI Images](https://hub.docker.com/r/cstadler333/gitlab-ci-php)
 
-> CURRENTLY ONLY SUPPORTS PHP 7.4!
-
-- `7.0` [(7.4/Dockerfile)](https://github.com/cstadler333/gitlab-ci-deployer/blob/master/php/7.4/Dockerfile) - [![Version](https://img.shields.io/docker/v/cstadler333/gitlab-ci-deployer/7.0?style=for-the-badge&logo=docker)](https://hub.docker.com/r/cstadler333/gitlab-ci-deployer/tags?name=7.0)
+- `7.4` [(7.4/Dockerfile)](https://github.com/cstadler333/gitlab-ci-deployer/blob/master/php/7.4/Dockerfile) - [![Version](https://img.shields.io/docker/v/cstadler333/gitlab-ci-deployer/7.4?style=for-the-badge&logo=docker)](https://hub.docker.com/r/cstadler333/gitlab-ci-deployer/tags?name=7.4)
+- `8.0` [(8.0/Dockerfile)](https://github.com/cstadler333/gitlab-ci-deployer/blob/master/php/8.0/Dockerfile) - [![Version](https://img.shields.io/docker/v/cstadler333/gitlab-ci-deployer/8.0?style=for-the-badge&logo=docker)](https://hub.docker.com/r/cstadler333/gitlab-ci-deployer/tags?name=8.0)
+- `8.1` [(8.1/Dockerfile)](https://github.com/cstadler333/gitlab-ci-deployer/blob/master/php/8.1/Dockerfile) - [![Version](https://img.shields.io/docker/v/cstadler333/gitlab-ci-deployer/8.1?style=for-the-badge&logo=docker)](https://hub.docker.com/r/cstadler333/gitlab-ci-deployer/tags?name=8.1)
 
 All versions come with [Node 16](https://nodejs.org/en/) and [Deployer 7.0](https://deployer.org)
 
@@ -31,7 +31,7 @@ All versions come with [Node 16](https://nodejs.org/en/) and [Deployer 7.0](http
 ```yaml
 .deploy: &deploy
     stage: deploy
-    image: cstadler333/gitlab-ci-deployer:7.0
+    image: cstadler333/gitlab-ci-deployer:8.1
 
 variables:
   APP_ENV: prod
