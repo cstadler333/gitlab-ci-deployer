@@ -5,7 +5,7 @@ ARG VCS_REF
 
 LABEL maintainer="Christopher Stadler <cstadler@smthdiff.com>" \
   PHP="7.4" \
-  NODE="16" \
+  NODE="18" \
   DEPLOYER="7.0" \
   org.label-schema.name="cstadler333/gitlab-ci-deployer" \
   org.label-schema.description="Docker image with PHP, Deployer and Node for Builds" \

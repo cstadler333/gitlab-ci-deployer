@@ -18,7 +18,12 @@
 - `8.0` [(8.0/Dockerfile)](https://github.com/cstadler333/gitlab-ci-deployer/blob/master/php/8.0/Dockerfile) - [![Version](https://img.shields.io/docker/v/cstadler333/gitlab-ci-deployer/8.0?style=for-the-badge&logo=docker)](https://hub.docker.com/r/cstadler333/gitlab-ci-deployer/tags?name=8.0)
 - `8.1` [(8.1/Dockerfile)](https://github.com/cstadler333/gitlab-ci-deployer/blob/master/php/8.1/Dockerfile) - [![Version](https://img.shields.io/docker/v/cstadler333/gitlab-ci-deployer/8.1?style=for-the-badge&logo=docker)](https://hub.docker.com/r/cstadler333/gitlab-ci-deployer/tags?name=8.1)
 
-All versions come with [Node 16](https://nodejs.org/en/) and [Deployer 7.0](https://deployer.org)
+All versions come with:
+- [Deployer 7](https://deployer.org)
+- [Composer 2](https://getcomposer.org/)
+- [Node 18](https://nodejs.org/en/)
+- [NPM 8](https://www.npmjs.com/)
+- [Yarn](https://yarnpkg.com)
 
 ---
 
