@@ -50,6 +50,13 @@ Deployer 8.1:
     - main
   variables:
     IMAGE_VERSION: "8.1"
+
+Deployer 8.2:
+  <<: *build
+  only:
+    - main
+  variables:
+    IMAGE_VERSION: "8.2"
   after_script:
     - docker tag $NAMESPACE:$IMAGE_VERSION $NAMESPACE:latest
     - docker push $NAMESPACE:latest

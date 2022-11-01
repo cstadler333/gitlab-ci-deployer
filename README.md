@@ -17,6 +17,7 @@
 - `7.4` [(7.4/Dockerfile)](https://github.com/cstadler333/gitlab-ci-deployer/blob/master/php/7.4/Dockerfile) - [![Version](https://img.shields.io/docker/v/cstadler333/gitlab-ci-deployer/7.4?style=for-the-badge&logo=docker)](https://hub.docker.com/r/cstadler333/gitlab-ci-deployer/tags?name=7.4)
 - `8.0` [(8.0/Dockerfile)](https://github.com/cstadler333/gitlab-ci-deployer/blob/master/php/8.0/Dockerfile) - [![Version](https://img.shields.io/docker/v/cstadler333/gitlab-ci-deployer/8.0?style=for-the-badge&logo=docker)](https://hub.docker.com/r/cstadler333/gitlab-ci-deployer/tags?name=8.0)
 - `8.1` [(8.1/Dockerfile)](https://github.com/cstadler333/gitlab-ci-deployer/blob/master/php/8.1/Dockerfile) - [![Version](https://img.shields.io/docker/v/cstadler333/gitlab-ci-deployer/8.1?style=for-the-badge&logo=docker)](https://hub.docker.com/r/cstadler333/gitlab-ci-deployer/tags?name=8.1)
+- `8.2` [(8.2/Dockerfile)](https://github.com/cstadler333/gitlab-ci-deployer/blob/master/php/8.2/Dockerfile) - [![Version](https://img.shields.io/docker/v/cstadler333/gitlab-ci-deployer/8.2?style=for-the-badge&logo=docker)](https://hub.docker.com/r/cstadler333/gitlab-ci-deployer/tags?name=8.2)
 
 All versions come with:
 
