@@ -19,6 +19,7 @@
 - `8.1` [(8.1/Dockerfile)](https://github.com/cstadler333/gitlab-ci-deployer/blob/master/php/8.1/Dockerfile) - [![Version](https://img.shields.io/docker/v/cstadler333/gitlab-ci-deployer/8.1?style=for-the-badge&logo=docker)](https://hub.docker.com/r/cstadler333/gitlab-ci-deployer/tags?name=8.1)
 
 All versions come with:
+
 - [Deployer 7](https://deployer.org)
 - [Composer 2](https://getcomposer.org/)
 - [Node 18](https://nodejs.org/en/)
@@ -39,20 +40,20 @@ All versions come with:
     image: cstadler333/gitlab-ci-deployer:8.1
 
 variables:
-  APP_ENV: prod
+    APP_ENV: prod
 
 cache:
-  paths:
-    - vendor/
-    - node_modules/
+    paths:
+        - vendor/
+        - node_modules/
 
 before_script:
-  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-  - eval $(ssh-agent -s)
-  - echo "${SSH_PRIVATE_KEY}" | tr -d '\r' | ssh-add - > /dev/null
-  - mkdir -p ~/.ssh
-  - chmod 700 ~/.ssh
-  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "${SSH_PRIVATE_KEY}" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
 deploy live:
     <<: *deploy

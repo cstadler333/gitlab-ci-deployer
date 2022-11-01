@@ -1,12 +1,15 @@
-stages:
-  - build
-
-image: docker:latest
+.build: &build
+  stage: build
+  script:
+    - docker pull $NAMESPACE:$IMAGE_VERSION || true
+    - docker build --compress --cache-from $NAMESPACE:$IMAGE_VERSION --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t $NAMESPACE:$IMAGE_VERSION -f php/$IMAGE_VERSION/Dockerfile .
+    - docker push $NAMESPACE:$IMAGE_VERSION
 
 variables:
   DOCKER_DRIVER: overlay2
   NAMESPACE: cstadler333/gitlab-ci-deployer
 
+image: docker:latest
 services:
   - docker:dind
 
@@ -14,31 +17,22 @@ before_script:
   - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
 
 Deployer 7.4:
-  stage: build
+  <<: *build
+  only:
+    - main
   variables:
     IMAGE_VERSION: "7.4"
-  script:
-    - docker pull $NAMESPACE:$IMAGE_VERSION || true
-    - docker build --compress --cache-from $NAMESPACE:$IMAGE_VERSION --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t $NAMESPACE:$IMAGE_VERSION -f php/7.4/Dockerfile .
-    - docker push $NAMESPACE:$IMAGE_VERSION
-  when: always
 
 Deployer 8.0:
-  stage: build
+  <<: *build
+  only:
+    - main
   variables:
     IMAGE_VERSION: "8.0"
-  script:
-    - docker pull $NAMESPACE:$IMAGE_VERSION || true
-    - docker build --compress --cache-from $NAMESPACE:$IMAGE_VERSION --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t $NAMESPACE:$IMAGE_VERSION -f php/8.0/Dockerfile .
-    - docker push $NAMESPACE:$IMAGE_VERSION
-  when: always
 
 Deployer 8.1:
-  stage: build
+  <<: *build
+  only:
+    - main
   variables:
     IMAGE_VERSION: "8.1"
-  script:
-    - docker pull $NAMESPACE:$IMAGE_VERSION || true
-    - docker build --compress --cache-from $NAMESPACE:$IMAGE_VERSION --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t $NAMESPACE:$IMAGE_VERSION -f php/8.1/Dockerfile .
-    - docker push $NAMESPACE:$IMAGE_VERSION
-  when: always
