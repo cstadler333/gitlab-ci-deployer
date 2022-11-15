@@ -44,7 +44,5 @@ Deployer 8.1:
   variables:
     IMAGE_VERSION: "8.1"
   after_script:
-    - docker tag $NAMESPACE:$IMAGE_TAG $NAMESPACE:latest-alpine
-    - docker push $NAMESPACE:latest-alpine
-    - docker tag $NAMESPACE:$IMAGE_TAG $NAMESPACE:latest
+    - docker tag $NAMESPACE:$IMAGE_VERSION $NAMESPACE:latest
     - docker push $NAMESPACE:latest
