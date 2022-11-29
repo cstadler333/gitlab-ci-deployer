@@ -30,6 +30,13 @@ Deployer 7.4 Node 14:
   variables:
     IMAGE_VERSION: "7.4-node14"
 
+Deployer 7.4 Node 16:
+  <<: *build
+  only:
+    - main
+  variables:
+    IMAGE_VERSION: "7.4-node16"
+
 Deployer 8.0:
   <<: *build
   only:
