@@ -51,6 +51,13 @@ Deployer 8.1:
   variables:
     IMAGE_VERSION: "8.1"
 
+Deployer 8.1 Node 16:
+  <<: *build
+  only:
+    - main
+  variables:
+    IMAGE_VERSION: "8.1-node16"
+
 Deployer 8.2:
   <<: *build
   only:
