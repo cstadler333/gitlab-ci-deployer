@@ -14,6 +14,8 @@ LABEL maintainer="Christopher Stadler <cstadler@smthdiff.com>" \
     org.label-schema.vcs-url="https://github.com/cstadler333/gitlab-ci-deployer" \
     org.label-schema.vcs-ref=$VCS_REF
 
-RUN composer global require --dev deployer/deployer \
+RUN sudo apk add curl gnupg \
+    && (curl -Ls --tlsv1.2 --proto "=https" --retry 3 https://cli.doppler.com/install.sh || wget -t 3 -qO- https://cli.doppler.com/install.sh) | sudo sh; \
+    composer global require --dev deployer/deployer \
     && rm -rf /home/php/.composer/cache \
     && sudo ln -sf /home/php/.composer/vendor/bin/dep /usr/local/bin/dep
