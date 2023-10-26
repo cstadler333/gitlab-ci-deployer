@@ -67,3 +67,10 @@ Deployer 8.2:
   after_script:
     - docker tag $NAMESPACE:$IMAGE_VERSION $NAMESPACE:latest
     - docker push $NAMESPACE:latest
+
+Deployer 8.2 Node 16:
+  <<: *build
+  only:
+    - main
+  variables:
+    IMAGE_VERSION: "8.2-node16"
