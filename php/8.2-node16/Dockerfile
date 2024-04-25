@@ -1,4 +1,4 @@
-FROM cstadler333/gitlab-ci-php:8.2-alpine
+FROM cstadler333/gitlab-ci-php:8.2-node16-alpine
 
 ARG BUILD_DATE
 ARG VCS_REF
