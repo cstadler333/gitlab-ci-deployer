@@ -18,35 +18,35 @@ services:
 before_script:
   - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
 
-Deployer 7.4:
-  <<: *build
-  variables:
-    IMAGE_VERSION: "7.4"
+#Deployer 7.4:
+#  <<: *build
+#  variables:
+#    IMAGE_VERSION: "7.4"
 
-Deployer 7.4 Node 14:
-  <<: *build
-  variables:
-    IMAGE_VERSION: "7.4-node14"
+#Deployer 7.4 Node 14:
+#  <<: *build
+#  variables:
+#    IMAGE_VERSION: "7.4-node14"
 
-Deployer 7.4 Node 16:
-  <<: *build
-  variables:
-    IMAGE_VERSION: "7.4-node16"
+#Deployer 7.4 Node 16:
+#  <<: *build
+#  variables:
+#    IMAGE_VERSION: "7.4-node16"
 
-Deployer 8.0:
-  <<: *build
-  variables:
-    IMAGE_VERSION: "8.0"
+#Deployer 8.0:
+#  <<: *build
+#  variables:
+#    IMAGE_VERSION: "8.0"
 
-Deployer 8.0 Node 16:
-  <<: *build
-  variables:
-    IMAGE_VERSION: "8.0-node16"
+#Deployer 8.0 Node 16:
+#  <<: *build
+#  variables:
+#    IMAGE_VERSION: "8.0-node16"
 
-Deployer 8.0 Node 18:
-  <<: *build
-  variables:
-    IMAGE_VERSION: "8.0-node18"
+#Deployer 8.0 Node 18:
+#  <<: *build
+#  variables:
+#    IMAGE_VERSION: "8.0-node18"
 
 Deployer 8.1:
   <<: *build
