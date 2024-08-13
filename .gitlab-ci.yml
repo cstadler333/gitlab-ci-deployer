@@ -1,5 +1,7 @@
 .build: &build
   stage: build
+  only:
+    - main
   script:
     - docker pull $NAMESPACE:$IMAGE_VERSION || true
     - docker build --compress --cache-from $NAMESPACE:$IMAGE_VERSION --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t $NAMESPACE:$IMAGE_VERSION -f php/$IMAGE_VERSION/Dockerfile .
@@ -18,45 +20,48 @@ before_script:
 
 Deployer 7.4:
   <<: *build
-  only:
-    - main
   variables:
     IMAGE_VERSION: "7.4"
 
 Deployer 7.4 Node 14:
   <<: *build
-  only:
-    - main
   variables:
     IMAGE_VERSION: "7.4-node14"
 
 Deployer 7.4 Node 16:
   <<: *build
-  only:
-    - main
   variables:
     IMAGE_VERSION: "7.4-node16"
 
 Deployer 8.0:
   <<: *build
-  only:
-    - main
   variables:
     IMAGE_VERSION: "8.0"
 
+Deployer 8.0 Node 16:
+  <<: *build
+  variables:
+    IMAGE_VERSION: "8.0-node16"
+
+Deployer 8.0 Node 18:
+  <<: *build
+  variables:
+    IMAGE_VERSION: "8.0-node18"
+
 Deployer 8.1:
   <<: *build
-  only:
-    - main
   variables:
     IMAGE_VERSION: "8.1"
 
 Deployer 8.1 Node 16:
   <<: *build
-  only:
-    - main
   variables:
     IMAGE_VERSION: "8.1-node16"
+
+Deployer 8.1 Node 18:
+  <<: *build
+  variables:
+    IMAGE_VERSION: "8.1-node18"
 
 Deployer 8.2:
   <<: *build
@@ -72,6 +77,13 @@ Deployer 8.2 Node 16:
   variables:
     IMAGE_VERSION: "8.2-node16"
 
+Deployer 8.2 Node 18:
+  <<: *build
+  only:
+    - main
+  variables:
+    IMAGE_VERSION: "8.2-node18"
+
 Deployer 8.3:
   <<: *build
   only:
@@ -81,3 +93,17 @@ Deployer 8.3:
   after_script:
     - docker tag $NAMESPACE:$IMAGE_VERSION $NAMESPACE:latest
     - docker push $NAMESPACE:latest
+
+Deployer 8.3 Node 16:
+  <<: *build
+  only:
+    - main
+  variables:
+    IMAGE_VERSION: "8.3-node16"
+
+Deployer 8.3 Node 18:
+  <<: *build
+  only:
+    - main
+  variables:
+    IMAGE_VERSION: "8.3-node18"

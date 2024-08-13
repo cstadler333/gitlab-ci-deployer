@@ -1,11 +1,11 @@
-FROM cstadler333/gitlab-ci-php:8.3-alpine
+FROM cstadler333/gitlab-ci-php:8.3-node16-alpine
 
 ARG BUILD_DATE
 ARG VCS_REF
 
 LABEL maintainer="Christopher Stadler <cstadler@smthdiff.com>" \
     PHP="8.3" \
-    NODE="20" \
+    NODE="16" \
     DEPLOYER="7" \
     org.label-schema.name="cstadler333/gitlab-ci-deployer" \
     org.label-schema.description="Docker image with PHP, Deployer and Node for Builds" \
