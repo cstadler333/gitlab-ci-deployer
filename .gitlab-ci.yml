@@ -5,6 +5,7 @@
   script:
     - docker pull $NAMESPACE:$PHP_VERSION-node$NODE_VERSION || true
     - docker build --compress --cache-from $NAMESPACE:$PHP_VERSION-node$NODE_VERSION --build-arg PHP_VERSION=$PHP_VERSION --build-arg NODE_VERSION=$NODE_VERSION --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t $NAMESPACE:$PHP_VERSION-node$NODE_VERSION -f php/Dockerfile .
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
     - docker push $NAMESPACE:$PHP_VERSION-node$NODE_VERSION
 
 variables:
@@ -14,9 +15,6 @@ variables:
 image: docker:latest
 services:
   - docker:dind
-
-before_script:
-  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
 
 Deployer PHP 7.4 Node 14:
   <<: *build
@@ -118,6 +116,27 @@ Deployer PHP 8.3 Node 20:
   <<: *build
   variables:
     PHP_VERSION: "8.3"
+    NODE_VERSION: "20"
+  after_script:
+    - docker tag $NAMESPACE:$PHP_VERSION-node$NODE_VERSION $NAMESPACE:$PHP_VERSION
+    - docker push $NAMESPACE:$PHP_VERSION
+
+Deployer PHP 8.4 Node 16:
+  <<: *build
+  variables:
+    PHP_VERSION: "8.4"
+    NODE_VERSION: "16"
+
+Deployer PHP 8.4 Node 18:
+  <<: *build
+  variables:
+    PHP_VERSION: "8.4"
+    NODE_VERSION: "18"
+
+Deployer PHP 8.4 Node 20:
+  <<: *build
+  variables:
+    PHP_VERSION: "8.4"
     NODE_VERSION: "20"
   after_script:
     - docker tag $NAMESPACE:$PHP_VERSION-node$NODE_VERSION $NAMESPACE:$PHP_VERSION
